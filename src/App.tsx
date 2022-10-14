@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import Chart from './components/Chart';
+import Table from './components/Table';
+import { makeStyles, Grid } from '@material-ui/core';
 import './App.css';
 
-function App() {
+const useStyles = makeStyles(() => ({
+  container: {
+    border: '3px solid purple',
+  },
+  item: {
+    padding: '10px',
+    border: '1px solid blue',
+  }
+}));
+
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="full">
+    <Grid container className={classes.container}>
+      <Grid item xs={12} sm={12} md={12} lg={6} xl={6} className={classes.item}><Chart /></Grid>
+      <Grid item xs={12} sm={12} md={12} lg={6} xl={6} className={classes.item}><Table /></Grid>
+    </Grid>
+
     </div>
+
+    // <Grid container spacing={2}>
+    //   <Grid xs={12} lg={6}>
+    //     <Chart />
+    //   </Grid>
+    //   <Grid xs={12} lg={6}>
+    //     <Chart />
+    //   </Grid>
+    // </Grid>
   );
 }
 
